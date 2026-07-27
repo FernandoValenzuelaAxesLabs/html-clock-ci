@@ -1,0 +1,10 @@
+{
+   "name":"html-clock",
+   "version":"1.0.0",
+   "private":true,
+   "scripts":{
+      "generate":"cmd /c run-codex.bat",
+      "test":"node tests/test.js",
+      "validate":"npm test"
+   }
+}

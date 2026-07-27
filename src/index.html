@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="A minimal live clock showing your local time and date.">
+    <title>Live Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="clock" aria-labelledby="clock-heading">
+      <h1 id="clock-heading" class="visually-hidden">Current local time</h1>
+      <time class="clock__time" id="clock-time" aria-live="polite">
+        <span id="hours">12</span><span aria-hidden="true">:</span><span id="minutes">00</span><span aria-hidden="true">:</span><span class="clock__seconds" id="seconds">00</span>
+        <span class="clock__period" id="period">AM</span>
+      </time>
+      <p class="clock__day" id="clock-day">Monday</p>
+      <p class="clock__date" id="clock-date">January 1, 2024</p>
+    </main>
+  </body>
+</html>
