@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print greeting
-        run: echo "hello from ci on Github"
+        run: echo "HELLO Guys from ci on Github"
