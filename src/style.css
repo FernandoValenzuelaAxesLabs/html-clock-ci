@@ -69,6 +69,19 @@ body {
   font-size: clamp(0.95rem, 3vw, 1.125rem);
 }
 
+.clock__format {
+  display: flex;
+  margin-top: 1.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.clock__format input {
+  accent-color: #38bdf8;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
