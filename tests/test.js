@@ -89,6 +89,14 @@ const tests = [
     expected: true,
     actual: verifyImmediateToggleUpdate,
   },
+  {
+    name: "Test 9: Background Color",
+    expected: true,
+    actual: () =>
+      /body\s*\{[^}]*background:\s*#BA1F00\s*;/i.test(
+        fs.readFileSync(path.join(__dirname, "../src/style.css"), "utf8"),
+      ),
+  },
 ];
 
 let hasFailure = false;
