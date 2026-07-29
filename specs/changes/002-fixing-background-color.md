@@ -1,0 +1,21 @@
+# Change: Time format toggle
+
+## Objective
+
+Change the background color to `#BA1F00`.
+
+## Existing behavior to preserve
+
+- In general the current behavior and UI/UX style must remain without changes.
+- Preserve the current visual design.
+- Preserve the current layout and responsive behavior.
+
+## Out of the scope
+
+- Saving the selected format after the page closes.
+- Redesigning the clock.
+
+## Acceptance criteria
+
+- The new background must be `#BA1F00`.
+- Existing tests continue to pass.
