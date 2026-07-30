@@ -22,40 +22,41 @@ jobs:
       - name: Run tests
         run: npm test
 
-deploy:
-  name: Deploy to AWS
-  needs: test
+  deploy:
+    name: Deploy to AWS
+    needs: test
 
   # Deploy only for a push to main, never for pull requests
-  if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-  runs-on: ubuntu-latest
-
-  permissions:
-    contents: read
-    id-token: write
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
   
-  environment:
-    name: production
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
   
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v6
+    environment:
+      name: production
+  
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
 
-    - name: Authenticate to AWS
-      uses: aws-actions/configure-aws-credentials@v6.2.3
-      with:
-        role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-        role-session-name: github-static-site-deployment
-        aws-region: ${{ vars.AWS_REGION }}
+      - name: Authenticate to AWS
+        uses: aws-actions/configure-aws-credentials@v6.2.3
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-session-name: github-static-site-deployment
+          aws-region: ${{ vars.AWS_REGION }}
 
-    - name: Deploy App to AWS S3
-      run: |
-        aws s3 sync ./src "s3://${{ vars.S3_BUCKET_NAME }}" \ 
+      - name: Deploy App to AWS S3
+        run: |
+          aws s3 sync ./src "s3://${{ vars.S3_BUCKET_NAME }}" \ 
             --delete
 
-    - name: Invalidate CloudFront Cache
-      run: |
-        aws cloudfront create-invalidation \
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation \
             --distribution-id ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
             
