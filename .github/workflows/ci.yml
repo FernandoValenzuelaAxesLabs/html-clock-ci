@@ -42,21 +42,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Authenticate to AWS
+      - name: Authenticate with AWS
         uses: aws-actions/configure-aws-credentials@v6.2.3
         with:
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
           role-session-name: github-static-site-deployment
           aws-region: ${{ vars.AWS_REGION }}
 
-      - name: Deploy App to AWS S3
+      - name: Deploy website to S3
         run: |
-          aws s3 sync ./src "s3://${{ vars.S3_BUCKET_NAME }}" \ 
+          aws s3 sync ./src "s3://${{ vars.S3_BUCKET_NAME }}" \
             --delete
 
-      - name: Invalidate CloudFront Cache
+      - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
-            --distribution-id ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --distribution-id "${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}" \
             --paths "/*"
-            
