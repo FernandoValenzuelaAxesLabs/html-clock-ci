@@ -93,7 +93,15 @@ const tests = [
     name: "Test 9: Background Color",
     expected: true,
     actual: () =>
-      /body\s*\{[^}]*background:\s*#BA1F00\s*;/i.test(
+      /body\s*\{[^}]*background:\s*#0f172a\s*;/i.test(
+        fs.readFileSync(path.join(__dirname, "../src/style.css"), "utf8"),
+      ),
+  },
+  {
+    name: "Test 10: Format Toggle Is 20px Lower",
+    expected: true,
+    actual: () =>
+      /\.clock__format\s*\{[^}]*margin-top:\s*calc\(1\.5rem\s*\+\s*20px\)\s*;/i.test(
         fs.readFileSync(path.join(__dirname, "../src/style.css"), "utf8"),
       ),
   },

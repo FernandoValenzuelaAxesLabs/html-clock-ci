@@ -1,4 +1,4 @@
-# Test Specification: Time format toggle
+# Test Specification: New Background
 
 ## New behavior
 

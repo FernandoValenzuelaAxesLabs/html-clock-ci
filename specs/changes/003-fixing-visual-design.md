@@ -1,8 +1,8 @@
-# Change: New Background
+# Change: Fixing Visual Design
 
 ## Objective
 
-Change the background color to `#BA1F00`.
+Recover the background color to `#0f172a`, if possible give a subtle luminosity to the clock area and move the Time Format Toggle 20px lower from its current position.
 
 ## Existing behavior to preserve
 
@@ -17,5 +17,5 @@ Change the background color to `#BA1F00`.
 
 ## Acceptance criteria
 
-- The new background must be `#BA1F00`.
+- The new background must be `#0f172a`.
 - Existing tests continue to pass.
