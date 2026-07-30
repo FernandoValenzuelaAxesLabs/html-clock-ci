@@ -14,7 +14,7 @@ body {
   min-height: 100vh;
   min-height: 100svh;
   margin: 0;
-  background: #BA1F00;
+  background: #0f172a;
   color: #f8fafc;
 }
 
@@ -71,7 +71,7 @@ body {
 
 .clock__format {
   display: flex;
-  margin-top: 1.5rem;
+  margin-top: calc(1.5rem + 20px);
   align-items: center;
   gap: 0.5rem;
   color: #cbd5e1;
